@@ -10,7 +10,7 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + "/dist/scripts",
+        path: __dirname + "/dist",
         filename: "[name].bundle.js",
         chunkFilename: "[id].bundle.js",
         publicPath: 'http://localhost:8000/static'
@@ -46,7 +46,7 @@ module.exports = {
     module: {
       loaders: [
         {test: /\.js$/, loader: 'react-hot!babel?presets[]=es2015,presets[]=react,presets[]=stage-0', exclude: /node_modules/},
-        {test: /\.css$/, loader: 'style!css'},
+        {test: /\.css$/, loader: 'react-hot!style!css'},
         {test: /\.json$/, loader: 'json'}
       ]
     },
