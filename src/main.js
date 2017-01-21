@@ -12,8 +12,6 @@ import Spinner from 'react-spinkit'
 
 
 
-
-
 @observer
 export default class App extends Component {
   constructor(props){
@@ -28,7 +26,7 @@ export default class App extends Component {
   }
 
   assignName(){
-    if(localStorage('username').length){
+    if(localStorage('username')){
       appState.username = localStorage('username')
     } else {
       appState.username = 'Anonymous ' + animals[Math.floor(Math.random() * animals.length - 1) + 1]
