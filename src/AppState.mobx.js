@@ -161,6 +161,8 @@ class AppState {
       recentIdeasList.push(item)
     }
 
+    recentIdeasList = recentIdeasList.slice().reverse()
+
     return recentIdeasList
   }
 
