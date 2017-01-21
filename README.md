@@ -1,1 +1,1 @@
-# IdeaBox - Sample Firebase Drive Web Application for PHP Indonesia.
+# IdeaBox - Sample Firebase Driven Web Application for PHP Indonesia.
