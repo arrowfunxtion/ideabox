@@ -9,6 +9,7 @@ import animals from './animals.json'
 import localStorage from 'local-storage'
 import { Notification } from 'react-notification';
 import Spinner from 'react-spinkit'
+require('./styles/global.css')
 
 
 
