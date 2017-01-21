@@ -4,8 +4,8 @@ module.exports = {
     context: __dirname + "/src",
     entry: {
         main: [
-          'webpack-dev-server/client?http://localhost:8000',
-          'webpack/hot/only-dev-server',
+          // 'webpack-dev-server/client?http://localhost:8000',
+          // 'webpack/hot/only-dev-server',
           './main.js'
         ]
     },
@@ -13,7 +13,7 @@ module.exports = {
         path: __dirname + "/dist",
         filename: "[name].bundle.js",
         chunkFilename: "[id].bundle.js",
-        publicPath: 'http://localhost:8000/static'
+        // publicPath: 'http://localhost:8000/static'
     },
 
 
@@ -24,30 +24,30 @@ module.exports = {
         GlobalService: './services/GlobalService',
         '_': 'lodash'
       }),
-      // new webpack.NoErrorsPlugin(),
-      // // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      // new webpack.DefinePlugin({
-      //    'process.env': {
-      //        // This has effect on the react lib size
-      //        'NODE_ENV': JSON.stringify('production'),
-      //    }
-      // }),
-      // // new webpack.optimize.UglifyJsPlugin(),
-      // new webpack.optimize.UglifyJsPlugin({
-      //   compress: {
-      //     warnings: false
-      //   },
-      //   sourceMap: false
-      // }),
-      // new webpack.optimize.OccurrenceOrderPlugin(),
-      // new webpack.optimize.DedupePlugin()
+      new webpack.NoErrorsPlugin(),
+      // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.DefinePlugin({
+         'process.env': {
+             // This has effect on the react lib size
+             'NODE_ENV': JSON.stringify('production'),
+         }
+      }),
+      // new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+        sourceMap: false
+      }),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.DedupePlugin()
     ],
 
     module: {
       loaders: [
-        {test: /\.js$/, loader: 'react-hot!babel?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-decorators-legacy', exclude: /node_modules/},
-        {test: /\.css$/, loader: 'react-hot!style!css'},
-        {test: /\.json$/, loader: 'react-hot!json'}
+        {test: /\.js$/, loader: 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-decorators-legacy', exclude: /node_modules/},
+        {test: /\.css$/, loader: 'style!css'},
+        {test: /\.json$/, loader: 'json'}
       ]
     },
     resolve: {
